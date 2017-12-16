@@ -25,12 +25,13 @@ html(lang="jp")
     h2 投稿一覧
     each post in posts
       div(class="panel panel-default")
+        - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
         div(class="panel-heading")
           - var isPostedByAdmin = (post.postedBy === 'admin')
           if isPostedByAdmin
-            span #{post.id} : 管理人 ★
+            span #{post.id} : 管理人 
           else
-            span #{post.id} : ID:#{post.trackingCookie}
+            span #{post.id} : ID:#{originalTrackingId}
         div(class="panel-body")
           p(style="white-space:pre;") #{post.content}
         div(class="panel-footer")

@@ -25,7 +25,8 @@ html(lang="jp")
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
+            - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
+              span #{post.id} : ID:#{originalTrackingId}      
         div.card-body
           p(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer
@@ -42,3 +43,6 @@ html(lang="jp")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
     crossorigin="anonymous")
+
+
+

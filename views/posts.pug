@@ -20,12 +20,13 @@ html(lang="jp")
     h2 投稿一覧
     each post in posts
       div.card.my-3
+        - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
         div.card-header
             - var isPostedByAdmin = (post.postedBy === 'admin')
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
+              span #{post.id} : ID:#{originalTrackingId}      
         div.card-body
           p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer

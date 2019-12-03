@@ -25,7 +25,12 @@ html(lang="jp")
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
+              - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
+              - var originalTrackingIdStr = String(originalTrackingId)
+              - var nihongoId = ''
+              - for (var i=0; i<originalTrackingIdStr.length; i+=2){
+              - nihongoId += String.fromCodePoint( 0x3030+ parseInt((originalTrackingIdStr.substr(i,2)),16));}
+              span #{post.id} : ID:' #{nihongoId} '
         div.card-body
           p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer

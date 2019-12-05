@@ -8,7 +8,7 @@ const html = pug.renderFile('./views/posts.pug', {
     id: 1,
     content: '<script>alert(\'test\');</script>',
     postedBy: 'guest1',
-    trackingCookie: '2639292283224063_ddcc625203464a9e10af58fc3eb92eed7df4b9b5',
+    trackingCookie: '4711788207269933_32b83d2ad4a72ea23dc656f0393b1798d0b76c85',
     createdAt: new Date(),
     updatedAt: new Date()
   }],
@@ -17,5 +17,7 @@ const html = pug.renderFile('./views/posts.pug', {
 
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
+assert(html.includes('4711788207269933'));
+assert(!html.includes('32b83d2ad4a72ea23dc656f0393b1798d0b76c85'));
 console.log('テストが正常に完了しました');
 

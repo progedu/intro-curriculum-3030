@@ -1,3 +1,6 @@
+//- 投稿一覧の ID に元々の ID だけではなく、ハッシュ値も一緒に表示されてしまいます。
+//- ハッシュ値が他のユーザーに公開された場合に、その生成方法が推測されてしまう可能性があります。
+//- それを防ぐために、ハッシュ値の部分は表示されないようにしましょう。
 doctype html
 html(lang="jp")
   head
@@ -25,7 +28,9 @@ html(lang="jp")
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
+              //- span #{post.id} : ID:#{post.trackingCookie}      
+              - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
+                span #{post.id} : ID:#{originalTrackingId}
         div.card-body
           p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer

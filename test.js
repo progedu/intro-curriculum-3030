@@ -15,7 +15,7 @@ const html = pug.renderFile('./views/posts.pug', {
   user: 'guest1'
 });
 
+console.log(html);
 // スクリプトタグがエスケープされて含まれていることをチェック
 assert(html.includes('&lt;script&gt;alert(\'test\');&lt;/script&gt;'));
 console.log('テストが正常に完了しました');
-

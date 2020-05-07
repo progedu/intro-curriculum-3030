@@ -4,7 +4,8 @@
   "description": "秘密の匿名掲示板",
   "main": "index.js",
   "scripts": {
-    "test": "node --harmony test.js"
+    "test": "node --harmony test.js",
+    "index": "node index.js"
   },
   "author": "",
   "license": "ISC",

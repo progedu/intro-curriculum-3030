@@ -26,7 +26,7 @@ html(lang="jp")
               span #{post.id} : 管理人 ★
             else
               - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
-              span #{post.id} : ID:#{originalTrackingId}      
+              span #{post.id} : ID:#{originalTrackingId}
         div.card-body
           p.card-text(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer

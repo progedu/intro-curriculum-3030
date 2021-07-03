@@ -22,10 +22,11 @@ html(lang="jp")
       div.card.my-3
         div.card-header
             - var isPostedByAdmin = (post.postedBy === 'admin')
+            - var originalTrackingId = post.trackingCookie ? post.trackingCookie.split('_')[0] : ''
             if isPostedByAdmin
               span #{post.id} : 管理人 ★
             else
-              span #{post.id} : ID:#{post.trackingCookie}      
+             span #{post.id} : ID:#{originalTrackingId}
         div.card-body
           p(style="white-space:pre; overflow:auto;") #{post.content}
         div.card-footer
